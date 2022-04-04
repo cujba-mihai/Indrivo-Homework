@@ -1,11 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-
-const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev'
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const PugPlugin = require('pug-plugin');
 
 const dirApp = path.join(__dirname, 'src');
 const dirStyles = path.join(__dirname, 'styles');
@@ -13,6 +12,7 @@ const dirNode = 'node_modules';
 
 module.exports = {
   entry: [
+    path.join(dirApp, 'index.pug'),
     path.join(dirApp, 'index.js'),
     path.join(dirStyles, 'index.scss')
   ],
@@ -27,23 +27,29 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      IS_DEVELOPMENT
+      IS_DEVELOPMENT: true
     }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new PugPlugin()
   ],
 
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [{ loader: 'babel-loader' }]
+      },
+
+      {
+        test: /\.pug$/,
+        use: [
+          { loader: PugPlugin.loader }
+        ],
       },
 
       {
@@ -68,9 +74,7 @@ module.exports = {
       },
     ]
   },
-
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()]
+  output: {
+    publicPath: path.resolve(__dirname, 'public')
   }
 }
