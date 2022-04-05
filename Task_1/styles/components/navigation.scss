@@ -19,7 +19,10 @@
 
     text-transform: uppercase;
     font-weight: 700;
+
+    &:active,
+    &:focus {
+      color: $color-flint-corn-red;
+    }
   }
-
-
 }

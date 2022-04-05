@@ -4,17 +4,20 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PugPlugin = require('pug-plugin');
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 const dirApp = path.join(__dirname, 'src');
 const dirStyles = path.join(__dirname, 'styles');
 const dirNode = 'node_modules';
 
 module.exports = {
-  entry: [
-    path.join(dirApp, 'index.pug'),
-    path.join(dirApp, 'index.js'),
-    path.join(dirStyles, 'index.scss')
-  ],
+  entry: {
+
+    index: path.join(dirApp, 'index.pug'),
+    "main": path.join(dirApp, 'index.js'),
+    styles: path.join(dirStyles, 'index.scss')
+  },
+
   resolve: {
     modules: [
       dirApp,
@@ -33,7 +36,8 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
     new CleanWebpackPlugin(),
-    new PugPlugin()
+    new PugPlugin(),
+    new FixStyleOnlyEntriesPlugin(),
   ],
 
   module: {
@@ -41,6 +45,14 @@ module.exports = {
       {
         test: /\.js$/,
         use: [{ loader: 'babel-loader' }]
+      },
+
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ]
       },
 
       {
@@ -62,9 +74,9 @@ module.exports = {
           {
             loader: 'css-loader'
           },
-          {
-            loader: 'postcss-loader'
-          },
+          // {
+          //   loader: 'postcss-loader'
+          // },
           {
             loader: 'sass-loader'
           }
@@ -75,5 +87,4 @@ module.exports = {
   output: {
     publicPath: path.resolve(__dirname, 'public')
   },
-  // watch: true
 }

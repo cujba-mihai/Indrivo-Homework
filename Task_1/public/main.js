@@ -1,0 +1,1 @@
+document.getElementById("nav-btn__my-fonts"),document.getElementById("nav-btn__buy-fonts"),console.log("RUN");
