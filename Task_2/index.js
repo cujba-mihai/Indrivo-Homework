@@ -1,4 +1,4 @@
-// 1. Array.reduce
+// 1. Array.reduce (shortest)
 const findBestMatch = (numToSearch, arr) => arr.reduce((a, b) => Math.abs(a - numToSearch) > Math.abs(b - numToSearch) ? b : a);
 
 // 2. Recursion

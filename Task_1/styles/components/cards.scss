@@ -1,0 +1,93 @@
+.radio {
+  display: grid;
+  grid-template-areas:
+    'merriweather roboto'
+    'merriweather ns';
+
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 40% 60%;
+  min-height: inherit;
+
+  &__input {
+    visibility: hidden;
+
+    &:checked,
+    &:checked + .radio__letter,
+    &:checked ~ .radio__list {
+      opacity: 50%;
+    }
+  }
+
+  &__label {
+    &_is--merriweather,
+    &_is--roboto,
+    &_is--noto-sans {
+      display: flex;
+      padding: 5rem;
+    }
+
+    &_is--merriweather {
+      grid-area: merriweather;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    &_is--roboto {
+      grid-area: roboto;
+    }
+    &_is--noto-sans {
+      grid-area: ns;
+    }
+  }
+
+  &__letter {
+    // position: absolute;
+    width: 17rem;
+    height: 16.5rem;
+    border-radius: 10%;
+    cursor: pointer;
+    border: 5px solid white;
+    outline: 1px solid black;
+    margin-bottom: 20px;
+
+    &_merriweather {
+      background-color: $color-florida-keys;
+      width: 23.5rem;
+      height: 23.5rem;
+    }
+    &_roboto {
+      background-color: $color-pink-tease;
+    }
+    &_ns {
+      background-color: $color-brandeis-blue;
+    }
+  }
+
+  &__letter-abs-wrapper {
+    position: relative;
+    height: inherit;
+  }
+
+  &__letter-abs {
+    position: absolute;
+    font-size: 8rem;
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+
+    top: 50%;
+    left: 5%;
+
+    &_is--roboto,
+    &_is--noto-sans {
+      font-size: 4rem;
+    }
+  }
+
+  &__list {
+    list-style: disc;
+  }
+
+  &__list-item {
+    font-size: 4rem;
+  }
+}

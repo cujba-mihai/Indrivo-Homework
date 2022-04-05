@@ -3,7 +3,6 @@ const webpack = require('webpack')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const PugPlugin = require('pug-plugin');
 
 const dirApp = path.join(__dirname, 'src');
@@ -16,7 +15,6 @@ module.exports = {
     path.join(dirApp, 'index.js'),
     path.join(dirStyles, 'index.scss')
   ],
-
   resolve: {
     modules: [
       dirApp,
@@ -76,5 +74,6 @@ module.exports = {
   },
   output: {
     publicPath: path.resolve(__dirname, 'public')
-  }
+  },
+  // watch: true
 }

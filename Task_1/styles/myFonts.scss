@@ -1,0 +1,194 @@
+// .my-fonts {
+//   border: 1px solid gray;
+//   border-radius: 8px;
+
+//   width: 64.5rem;
+//   height: 31rem;
+// }
+
+
+// .radio {
+
+//   height: inherit;
+
+
+//   &__container {
+//     display: grid;
+//     grid-template-areas: "merriweather roboto"
+//                          "merriweather notosans";
+//     grid-template-columns: 1.15fr 1.5fr;
+//     gap: 2rem;
+//     height: 100%;
+
+//   }
+
+//   &__input{
+//     display: none;
+//    }
+
+//    &__inside-text {
+
+//     &_merriweather{
+//       position: absolute;
+//       top: 36%;
+//       left: 22%;
+
+//       font-size: 4rem;
+//       font-weight: 600;
+//       color: rgba(255, 255, 255, 0.5);
+
+      
+//     }
+
+//     &_roboto, 
+//     &_noto-sans {
+//       position: absolute;
+//       top: 55%;
+//       left: 5%;
+
+//       font-size: 2.5rem;
+//       font-weight: 600;
+//       color: rgba(255, 255, 255, 0.5);
+//     }
+
+//     &_noto-sans{
+
+//     }
+//    }
+
+//    &__list {
+
+//     list-style: disc;
+//     font-size: 1.7rem;
+//     font-weight: 500;
+//     line-height: 1.5;
+
+//     display: grid;
+
+//     &>li {
+//       max-width: 16ch;
+//       margin-left: 4rem;
+      
+//       justify-self: center;
+//       align-self: center;
+
+//       hyphens: auto;
+//       overflow-wrap: break-word;
+//     }
+
+//     &_merriweather{
+//       margin-top: 1rem;
+//       margin-left: -2.5rem;
+//       justify-self: left;
+//     }
+
+//     &_roboto{
+//       align-self: center;
+
+//     }
+
+//     &_noto-sans{
+//       align-self: center;
+//     }
+//    }
+  
+  
+
+
+//   &__label{
+
+
+    
+//     &_merriweather{
+//       justify-self: center;
+//       grid-area: merriweather;
+
+//       position: relative;
+//       padding: 0 5rem 0 4.5rem;
+
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-content: space-around;
+
+
+
+
+      // &:before {
+      //   display: flex;
+      //   flex-shrink: 0;
+      //   content: "";
+      //   background-color: $color-florida-keys;
+      //   width: 11.5rem;
+      //   height: 11.5rem;
+      //   border-radius: 1rem;
+      //   margin-right: 0.375em;
+      //   transition: 0.25s ease;
+
+      //   cursor: pointer;
+      //   border: 5px solid white;
+      //   outline: 1px solid black;
+
+
+      //   margin-bottom: 2rem;
+      // }
+
+
+//     } 
+
+//     &_roboto{
+//       grid-area: roboto;
+//       position: relative;
+
+//       justify-self: left;
+//       align-self: center;
+
+//       display: flex;
+
+//       &:before {
+//         display: flex;
+//         flex-shrink: 0;
+//         content: "";
+//         background-color: $color-pink-tease;
+//         width: 8.5rem;
+//         height: 8.5rem;
+//         border-radius: 2rem;
+//         margin-right: 0.375em;
+//         transition: 0.25s ease;
+
+//         cursor: pointer;
+//         border: 5px solid white;
+//         outline: 1px solid black;
+//       }
+
+//     } 
+
+//     &_noto-sans{
+//       grid-area: notosans;
+//       position: relative;
+
+//       align-self: center;
+//       display: flex;
+
+
+//       &:before {
+//         display: flex;
+//         flex-shrink: 0;
+//         content: "";
+//         background-color: $color-brandeis-blue;
+//         width: 8.5rem;
+//         height: 8.5rem;
+//         border-radius: 2rem;
+//         margin-right: 0.375em;
+//         transition: 0.25s ease;
+
+//         cursor: pointer;
+//         border: 5px solid white;
+//         outline: 1px solid black;
+//       }
+
+//     } 
+//   }
+
+
+// }

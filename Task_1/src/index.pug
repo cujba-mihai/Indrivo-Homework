@@ -3,6 +3,44 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    link(href="main.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"  rel="stylesheet")
     
   body 
-    h1 Hello, World!
+    div(class="app") 
+
+      nav(class="navigation")
+        div(class="navigation__button-group")
+          ul(class="navigation__list")
+            li(class="navigation__list-item")
+              button(class="navigation__button navigation__button_isActive" id="nav-btn__my-fonts") my fonts
+          ul(class="navigation__list")
+            li(class="navigation__list-item")
+              button(class="navigation__button navigation__button_isInactive" id="nav-btn__buy-fonts") buy fonts
+
+      div(class="main-container")
+        main(class="radio")
+          label(for="merriweather" class="radio__label radio__label_is--merriweather")
+            input(type="radio" checked id="merriweather" name="fontselect" class="radio__input") 
+            span(class="radio__letter radio__letter_merriweather")
+              div(class="radio__letter-abs-wrapper")
+                i(class="radio__letter-abs radio__letter-abs_is--merriweather")  M
+            ul(class="radio__list")
+              li(class="radio__list-item") Merriweather project is led by Sorkin Type
+          
+          label(for="roboto" class="radio__label radio__label_is--roboto")
+            input(type="radio" checked id="roboto" name="fontselect" class="radio__input") 
+            span(class="radio__letter radio__letter_roboto") 
+              div(class="radio__letter-abs-wrapper")
+                i(class="radio__letter-abs  radio__letter-abs_is--roboto")  R
+            ul(class="radio__list")
+              li(class="radio__list-item") Roboto doesn't compromise, allowing letters
+
+          label(for="noto-sans" class="radio__label radio__label_is--noto-sans")
+            input(type="radio" checked id="noto-sans" name="fontselect" class="radio__input") 
+            span(class="radio__letter radio__letter_ns")
+              div(class="radio__letter-abs-wrapper")
+                i(class="radio__letter-abs  radio__letter-abs_is--noto-sans")  NS
+            ul(class="radio__list")
+              li(class="radio__list-item") Noto Sans covers over 30 scripts

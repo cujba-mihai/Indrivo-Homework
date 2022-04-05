@@ -1,0 +1,20 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: calc(100vw / 1920 * 10); //100vw multiplied by design width and scaled to 10
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
