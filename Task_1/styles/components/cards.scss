@@ -4,6 +4,8 @@
     'merriweather roboto'
     'merriweather ns';
 
+  user-select: none;
+
   grid-template-rows: 50% 50%;
   grid-template-columns: 40% 60%;
   min-height: inherit;
@@ -24,35 +26,39 @@
     &_is--noto-sans {
       display: flex;
       padding: 5rem;
+      gap: 5rem;
     }
 
     &_is--merriweather {
       grid-area: merriweather;
       flex-direction: column;
       gap: 3rem;
+      padding-left: 9rem;
     }
     &_is--roboto {
       grid-area: roboto;
+      padding-top: 10rem;
+      padding-left: 0rem;
     }
     &_is--noto-sans {
       grid-area: ns;
+      padding: 0rem;
     }
   }
 
   &__letter {
-    // position: absolute;
-    width: 17rem;
+    min-width: 16.5rem;
     height: 16.5rem;
     border-radius: 10%;
     cursor: pointer;
     border: 5px solid white;
     outline: 1px solid black;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 
     &_merriweather {
       background-color: $color-florida-keys;
       width: 23.5rem;
-      height: 23.5rem;
+      min-height: 23.5rem;
     }
     &_roboto {
       background-color: $color-pink-tease;
@@ -65,6 +71,8 @@
   &__letter-abs-wrapper {
     position: relative;
     height: inherit;
+    min-width: inherit;
+    display: inline-block;
   }
 
   &__letter-abs {
@@ -81,13 +89,37 @@
     &_is--noto-sans {
       font-size: 4rem;
     }
+
+    &_is--merriweather {
+      top: 75%;
+      left: 15%;
+    }
+    &_is--roboto {
+      top: 60%;
+      left: 12%;
+    }
+    &_is--noto-sans {
+      top: 60%;
+      left: 12%;
+    }
   }
 
   &__list {
     list-style: disc;
+    list-style-position: outside;
+    cursor: pointer;
   }
 
   &__list-item {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    font-weight: 500;
+    max-width: 13ch;
+
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.3;
+    letter-spacing: 1.5;
+
+    margin-left: 3rem;
   }
 }
