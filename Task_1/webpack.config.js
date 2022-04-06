@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PugPlugin = require('pug-plugin');
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 
 const dirApp = path.join(__dirname, 'src');
 const dirStyles = path.join(__dirname, 'styles');
@@ -12,12 +12,11 @@ const dirNode = 'node_modules';
 
 module.exports = {
   entry: {
-
-    index: path.join(dirApp, 'index.pug'),
-    "main": path.join(dirApp, 'index.js'),
-    styles: path.join(dirStyles, 'index.scss')
+    'index': path.join(dirApp, 'index.pug'),
+    'main': ["@babel/polyfill", path.join(dirApp, 'index.js')],
+    'styles': path.join(dirStyles, 'index.scss')
   },
-
+  target: "web",
   resolve: {
     modules: [
       dirApp,
@@ -37,14 +36,15 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new PugPlugin(),
-    new FixStyleOnlyEntriesPlugin(),
+    new RemoveEmptyScriptsPlugin(),
   ],
 
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: [{ loader: 'babel-loader' }]
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: { loader: 'babel-loader' }
       },
 
       {
@@ -74,9 +74,9 @@ module.exports = {
           {
             loader: 'css-loader'
           },
-          // {
-          //   loader: 'postcss-loader'
-          // },
+          {
+            loader: 'postcss-loader'
+          },
           {
             loader: 'sass-loader'
           }
@@ -85,6 +85,7 @@ module.exports = {
     ]
   },
   output: {
-    publicPath: path.resolve(__dirname, 'public')
-  },
+    publicPath: path.resolve(__dirname, 'public'),
+    publicPath: '/',
+  }
 }

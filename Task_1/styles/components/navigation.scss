@@ -20,9 +20,17 @@
     text-transform: uppercase;
     font-weight: 700;
 
-    &:active,
-    &:focus {
+    // &:active,
+    // &:focus {
+    //   color: $color-flint-corn-red;
+    // }
+
+    &_is--active {
       color: $color-flint-corn-red;
+    }
+
+    &_is--inactive {
+      color: black;
     }
   }
 }

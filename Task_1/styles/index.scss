@@ -1,27 +1,11 @@
-@import "./base/reset";
+@import './base/reset';
 
-@import "./utils/variables";
+@import './utils/variables';
 
 @import './base/base';
-@import "./utils/responsive";
+@import './utils/responsive';
 
-@import "./pages/main";
-@import "./components/navigation";
-@import "./components/cards";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@import './pages/main';
+@import './components/navigation';
+@import './components/cards';
+@import './components/dummyText';
